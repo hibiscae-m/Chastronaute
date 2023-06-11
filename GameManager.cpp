@@ -1,0 +1,28 @@
+//
+// Created by Marius on 11/06/2023.
+//
+
+#include "GameManager.h"
+#include "Player.h"
+
+void GameManager::update() {
+    for (auto& buffered_element : buffer)
+        elements.push_back(std::move(buffered_element));
+    buffer.clear();
+    for (auto i = 0u; i < elements.size(); i++) {
+        if (!(elements[i]->isAlive()))
+            elements.erase(elements.begin() + i);
+        elements[i]->update();
+    }
+}
+
+void GameManager::draw(sf::RenderWindow &window) {
+    for (auto& element: elements)
+        element->draw(window);
+}
+
+void GameManager::add(GraphicElements::TYPE type) {
+    if (type == GraphicElements::TYPE::Player) {
+        buffer.push_back(std::make_unique<Player>());
+    }
+}
