@@ -18,6 +18,7 @@ public:
         Player,
         Missile,
         Asteroid,
+        Impact,
         Other
     };
 

@@ -8,7 +8,13 @@
 #include "GraphicElements.h"
 
 class Impact : public GraphicElements {
-    Impact =
+public:
+    Impact() = delete;
+    explicit Impact(sf::Vector2f position);
+
+    void reactCollision(TYPE type) override;
+
+    void update() override;
 };
 
 

@@ -4,6 +4,7 @@
 
 #include "Missile.h"
 #include "TexturesLocations.h"
+#include "GameManager.h"
 
 Missile::Missile(sf::Vector2f position) : GraphicElements(TexturesLocations::MISSILE, position) {
     type = TYPE::Missile;
@@ -14,6 +15,7 @@ Missile::Missile(sf::Vector2f position) : GraphicElements(TexturesLocations::MIS
 
 void Missile::reactCollision(GraphicElements::TYPE type) {
     if (type == TYPE::Asteroid) {
+        GameManager::add(TYPE::Impact, sprite.getPosition());
         alive = false;
     }
 }

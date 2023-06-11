@@ -3,3 +3,26 @@
 //
 
 #include "Impact.h"
+#include "TexturesLocations.h"
+
+
+Impact::Impact(sf::Vector2f position) : GraphicElements(TexturesLocations::IMPACT, position){
+    sprite.setScale(0.1, 0.1);
+    lifetime = sf::seconds(2);
+}
+
+void Impact::update() {
+    if (time_since_spawned.getElapsedTime() < lifetime / 20.f) {
+        sprite.setScale(time_since_spawned.getElapsedTime().asSeconds() / (lifetime.asSeconds() / 20.f),
+                        time_since_spawned.getElapsedTime().asSeconds() / (lifetime.asSeconds() / 20.f));
+    }
+    else {
+        sprite.setColor(sf::Color(255, 255, 255,
+                                  time_since_spawned.getElapsedTime().asSeconds() * lifetime.asSeconds() / 255));
+    }
+    GraphicElements::update();
+}
+
+void Impact::reactCollision(GraphicElements::TYPE type) {
+
+}
