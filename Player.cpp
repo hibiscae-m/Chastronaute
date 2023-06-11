@@ -18,6 +18,12 @@ void Player::update() {
     handlePlayerInputs();
     acceleration -= acceleration * FRICTION * WindowSettings::TIME_PER_FRAME;
     sprite.move(acceleration * WindowSettings::TIME_PER_FRAME);
+    if (sprite.getPosition().y < sprite.getGlobalBounds().height / 2) {
+        sprite.setPosition(sprite.getPosition().x, sprite.getGlobalBounds().height / 2);
+    }
+    if (sprite.getPosition().y > WindowSettings::WINDOW_HEIGHT - sprite.getGlobalBounds().height / 2) {
+        sprite.setPosition(sprite.getPosition().x, WindowSettings::WINDOW_HEIGHT - sprite.getGlobalBounds().height / 2);
+    }
     sprite.setRotation(static_cast<float>(acceleration.y * 0.03));
 }
 
@@ -28,10 +34,6 @@ void Player::handlePlayerInputs() {
             movement += {0.f, -speed };
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
             movement += {0.f, speed };
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-            movement += {-speed, 0.f };
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            movement += {speed, 0.f };
         acceleration += movement;
     }
     { // Shooting
