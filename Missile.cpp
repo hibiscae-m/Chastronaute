@@ -11,3 +11,9 @@ Missile::Missile(sf::Vector2f position) : GraphicElements(TexturesLocations::MIS
     lifetime = sf::seconds(3);
     acceleration = {speed, 0.f};
 }
+
+void Missile::reactCollision(GraphicElements::TYPE type) {
+    if (type == TYPE::Asteroid) {
+        alive = false;
+    }
+}

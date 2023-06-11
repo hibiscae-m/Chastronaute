@@ -13,6 +13,9 @@ public:
     Player() = delete;
     explicit Player(sf::Vector2f position);
     void update() override;
+
+    void reactCollision(TYPE type) override;
+
 private:
     void handlePlayerInputs();
 

@@ -16,3 +16,9 @@ void Asteroid::update() {
     sprite.rotate(-1.f);
     GraphicElements::update();
 }
+
+void Asteroid::reactCollision(GraphicElements::TYPE type) {
+    if (type == TYPE::Missile) {
+        alive = false;
+    }
+}

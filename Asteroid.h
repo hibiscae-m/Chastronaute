@@ -12,6 +12,8 @@ public:
     Asteroid() = delete;
     explicit Asteroid(sf::Vector2f position);
     void update() override;
+
+    void reactCollision(TYPE type) override;
 };
 
 

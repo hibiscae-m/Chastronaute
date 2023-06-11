@@ -58,3 +58,9 @@ void Player::shoot() {
         GameManager::add(TYPE::Missile, sprite.getPosition());
     }
 }
+
+void Player::reactCollision(GraphicElements::TYPE type) {
+    if (type == TYPE::Asteroid) {
+        alive = false;
+    }
+}
