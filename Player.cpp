@@ -6,7 +6,6 @@
 #include "TexturesLocations.h"
 #include "WindowSettings.h"
 #include "GameManager.h"
-#include <random>
 
 Player::Player(sf::Vector2f position) :
     GraphicElements(TexturesLocations::CHASTRONAUTE, position)
@@ -44,10 +43,6 @@ void Player::handlePlayerInputs() {
     }
     { // Spawn asteroids
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            auto generator = std::random_device();
-            auto window_height_distribution = std::uniform_real_distribution<float>(0, WindowSettings::WINDOW_HEIGHT);
-            auto random_height_position = window_height_distribution(generator);
-            GameManager::add(TYPE::Asteroid, {WindowSettings::WINDOW_WIDTH, random_height_position});
         }
     }
 }

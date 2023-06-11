@@ -13,7 +13,7 @@ Game::Game() :
 {}
 
 void Game::run() {
-    GameManager::add(GraphicElements::TYPE::Player, {100, 100});
+    GameManager::add(GraphicElements::TYPE::Player, {150, 100});
     sf::Clock clock;
     sf::Time time_since_last_update = sf::Time::Zero;
     sf::Time time_per_frame = sf::seconds(WindowSettings::TIME_PER_FRAME);

@@ -20,7 +20,7 @@ GraphicElements::GraphicElements(const std::string_view texture_location, sf::Ve
 
 void GraphicElements::draw(sf::RenderWindow &window) {
     window.draw(sprite);
-    window.draw(hitbox);
+    //window.draw(hitbox);
 }
 
 void GraphicElements::update() {

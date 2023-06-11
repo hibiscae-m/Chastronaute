@@ -6,8 +6,11 @@
 #include "Player.h"
 #include "Missile.h"
 #include "Asteroid.h"
+#include "WindowSettings.h"
+#include <random>
 
 void GameManager::update() {
+    spawn();
     checkCollision();
     for (auto& buffered_element : buffer)
         elements.push_back(std::move(buffered_element));
@@ -43,5 +46,16 @@ void GameManager::checkCollision() {
                 element->checkCollisions(*other_element);
             }
         }
+    }
+}
+
+void GameManager::spawn() {
+    if (time_since_last_asteroid.getElapsedTime() > asteroid_cooldown) {
+        time_since_last_asteroid.restart();
+        auto generator = std::random_device();
+        auto window_height_distribution = std::uniform_real_distribution<float>(0, WindowSettings::WINDOW_HEIGHT);
+        auto random_height_position = window_height_distribution(generator);
+        GameManager::add(GraphicElements::TYPE::Asteroid,
+                         {WindowSettings::WINDOW_WIDTH, random_height_position});
     }
 }
