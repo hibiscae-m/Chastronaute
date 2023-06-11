@@ -11,12 +11,13 @@ Player::Player(sf::Vector2f position) :
     GraphicElements(TexturesLocations::CHASTRONAUTE, position)
 {
     sprite.setScale(0.3, 0.3);
+    speed = 70.f;
 }
 
 void Player::update() {
     handlePlayerInputs();
     acceleration -= acceleration * FRICTION * WindowSettings::TIME_PER_FRAME;
-    sprite.move(acceleration * WindowSettings::TIME_PER_FRAME);
+    GraphicElements::update();
     sprite.setRotation(static_cast<float>(acceleration.y * 0.03));
 }
 

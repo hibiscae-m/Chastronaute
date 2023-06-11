@@ -14,7 +14,7 @@ public:
     GraphicElements(std::string_view texture_location, sf::Vector2f position);
     virtual ~GraphicElements() = default;
     void draw(sf::RenderWindow& window);
-    virtual void update() = 0;
+    virtual void update();
 
     enum class TYPE {
         Player,
@@ -26,6 +26,9 @@ public:
     bool isAlive() const { return alive; };
     TYPE getType() const { return type; };
 protected:
+    float speed{};
+    const float FRICTION = 5.F;
+    sf::Vector2f acceleration = {0.f, 0.f};
     bool alive = true;
     TYPE type = TYPE::Other;
     sf::Sprite sprite;
