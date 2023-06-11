@@ -19,6 +19,7 @@ public:
     enum class TYPE {
         Player,
         Missile,
+        Asteroid,
         Other
     };
 

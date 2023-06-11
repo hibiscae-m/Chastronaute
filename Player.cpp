@@ -10,6 +10,7 @@
 Player::Player(sf::Vector2f position) :
     GraphicElements(TexturesLocations::CHASTRONAUTE, position)
 {
+    type = TYPE::Player;
     sprite.setScale(0.3, 0.3);
     speed = 70.f;
 }
@@ -39,6 +40,11 @@ void Player::handlePlayerInputs() {
     { // Shooting
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             shoot();
+    }
+    { // Spawn asteroids
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+            GameManager::add(TYPE::Asteroid, {WindowSettings::WINDOW_WIDTH + 200, 400});
+        }
     }
 }
 
