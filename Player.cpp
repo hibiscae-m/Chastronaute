@@ -17,7 +17,7 @@ Player::Player(sf::Vector2f position) :
 void Player::update() {
     handlePlayerInputs();
     acceleration -= acceleration * FRICTION * WindowSettings::TIME_PER_FRAME;
-    GraphicElements::update();
+    sprite.move(acceleration * WindowSettings::TIME_PER_FRAME);
     sprite.setRotation(static_cast<float>(acceleration.y * 0.03));
 }
 
@@ -36,6 +36,13 @@ void Player::handlePlayerInputs() {
     }
     { // Shooting
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            GameManager::add(TYPE::Missile, sprite.getPosition());
+            shoot();
+    }
+}
+
+void Player::shoot() {
+    if (time_since_last_shoot.getElapsedTime() > shoot_cooldown) {
+        time_since_last_shoot.restart();
+        GameManager::add(TYPE::Missile, sprite.getPosition());
     }
 }

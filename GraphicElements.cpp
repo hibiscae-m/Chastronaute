@@ -18,4 +18,7 @@ void GraphicElements::draw(sf::RenderWindow &window) {
 
 void GraphicElements::update() {
     sprite.move(acceleration * WindowSettings::TIME_PER_FRAME);
+    if (time_since_spawned.getElapsedTime() > lifetime) {
+        alive = false;
+    }
 }

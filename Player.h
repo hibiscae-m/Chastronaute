@@ -15,7 +15,10 @@ public:
     void update() override;
 private:
     void handlePlayerInputs();
+
     void shoot();
+    sf::Clock time_since_last_shoot;
+    sf::Time shoot_cooldown = sf::milliseconds(100);
 };
 
 

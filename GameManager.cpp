@@ -11,9 +11,9 @@ void GameManager::update() {
         elements.push_back(std::move(buffered_element));
     buffer.clear();
     for (auto i = 0u; i < elements.size(); i++) {
+        elements[i]->update();
         if (!(elements[i]->isAlive()))
             elements.erase(elements.begin() + i);
-        elements[i]->update();
     }
 }
 

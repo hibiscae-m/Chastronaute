@@ -32,6 +32,8 @@ protected:
     bool alive = true;
     TYPE type = TYPE::Other;
     sf::Sprite sprite;
+    sf::Clock time_since_spawned;
+    sf::Time lifetime;
 private:
 };
 

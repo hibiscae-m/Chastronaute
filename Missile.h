@@ -11,7 +11,6 @@ class Missile : public GraphicElements {
 public:
     Missile() = delete;
     explicit Missile(sf::Vector2f position);
-    void update() override;
 };
 
 
