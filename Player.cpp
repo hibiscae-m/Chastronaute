@@ -26,6 +26,7 @@ void Player::update() {
     if (sprite.getPosition().y > WindowSettings::WINDOW_HEIGHT - sprite.getGlobalBounds().height / 2) {
         sprite.setPosition(sprite.getPosition().x, WindowSettings::WINDOW_HEIGHT - sprite.getGlobalBounds().height / 2);
     }
+    hitbox.setPosition(sprite.getPosition());
     sprite.setRotation(static_cast<float>(acceleration.y * 0.03));
 }
 

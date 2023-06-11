@@ -35,6 +35,7 @@ protected:
     sf::Sprite sprite;
     sf::Clock time_since_spawned;
     sf::Time lifetime;
+    sf::CircleShape hitbox;
 private:
 };
 
