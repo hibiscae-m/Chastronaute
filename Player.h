@@ -21,7 +21,7 @@ private:
 
     void shoot();
     sf::Clock time_since_last_shoot;
-    sf::Time shoot_cooldown = sf::milliseconds(100);
+    sf::Time shoot_cooldown = sf::milliseconds(500);
 };
 
 

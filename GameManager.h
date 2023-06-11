@@ -12,7 +12,7 @@ static std::vector<std::unique_ptr<GraphicElements>> elements{};
 static std::vector<std::unique_ptr<GraphicElements>> buffer{};
 
 static sf::Clock time_since_last_asteroid;
-static sf::Time asteroid_cooldown = sf::milliseconds(500);
+static sf::Time asteroid_cooldown = sf::milliseconds(750);
 
 class GameManager {
 public:

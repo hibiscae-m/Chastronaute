@@ -6,7 +6,6 @@
 #include "ResourcesManager.h"
 #include "WindowSettings.h"
 #include <cmath>
-#include <iostream>
 
 GraphicElements::GraphicElements(const std::string_view texture_location, sf::Vector2f position) {
     sprite.setTexture(ResourcesManager<sf::Texture>::getResource(texture_location));
