@@ -8,6 +8,7 @@
 #include "Asteroid.h"
 
 void GameManager::update() {
+    checkCollision();
     for (auto& buffered_element : buffer)
         elements.push_back(std::move(buffered_element));
     buffer.clear();
@@ -32,5 +33,15 @@ void GameManager::add(GraphicElements::TYPE type, sf::Vector2f position) {
     }
     if (type == GraphicElements::TYPE::Asteroid) {
         buffer.push_back(std::make_unique<Asteroid>(position));
+    }
+}
+
+void GameManager::checkCollision() {
+    for (auto& element: elements) {
+        for (auto& other_element: elements) {
+            if (element != other_element) {
+                element->checkCollisions(*other_element);
+            }
+        }
     }
 }

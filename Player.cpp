@@ -12,7 +12,6 @@ Player::Player(sf::Vector2f position) :
     GraphicElements(TexturesLocations::CHASTRONAUTE, position)
 {
     type = TYPE::Player;
-    sprite.setScale(0.3, 0.3);
     speed = 70.f;
 }
 

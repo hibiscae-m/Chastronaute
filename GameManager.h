@@ -17,6 +17,8 @@ public:
     static void update();
     static void draw(sf::RenderWindow& window);
     static void add(GraphicElements::TYPE type, sf::Vector2f position);
+private:
+    static void checkCollision();
 };
 
 

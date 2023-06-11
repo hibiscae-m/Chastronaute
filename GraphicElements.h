@@ -13,8 +13,6 @@ public:
     GraphicElements() = delete;
     GraphicElements(std::string_view texture_location, sf::Vector2f position);
     virtual ~GraphicElements() = default;
-    void draw(sf::RenderWindow& window);
-    virtual void update();
 
     enum class TYPE {
         Player,
@@ -23,9 +21,16 @@ public:
         Other
     };
 
+    void draw(sf::RenderWindow& window);
+    virtual void update();
+    void checkCollisions(const GraphicElements& other);
+    virtual void reactCollision(TYPE type) = 0;
+
     // Getters
     bool isAlive() const { return alive; };
     TYPE getType() const { return type; };
+    sf::Vector2f getPosition() const { return sprite.getPosition(); };
+    float getHitboxRadius() const { return hitbox.getRadius(); };
 protected:
     float speed{};
     const float FRICTION = 5.F;
