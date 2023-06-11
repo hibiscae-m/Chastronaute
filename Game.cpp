@@ -5,6 +5,7 @@
 #include "Game.h"
 #include "WindowSettings.h"
 #include "Player.h"
+#include "GameManager.h"
 
 Game::Game() :
         window(sf::VideoMode(WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT),
@@ -12,7 +13,7 @@ Game::Game() :
 {}
 
 void Game::run() {
-    game_manager.add(GraphicElements::TYPE::Player);
+    GameManager::add(GraphicElements::TYPE::Player, {100, 100});
     sf::Clock clock;
     sf::Time time_since_last_update = sf::Time::Zero;
     sf::Time time_per_frame = sf::seconds(WindowSettings::TIME_PER_FRAME);
@@ -21,7 +22,7 @@ void Game::run() {
         if (time_since_last_update > time_per_frame) {
             time_since_last_update -= time_per_frame;
             processEvents();
-            game_manager.update();
+            GameManager::update();
             display();
         }
     }
@@ -38,6 +39,6 @@ void Game::processEvents() {
 
 void Game::display() {
     window.clear();
-    game_manager.draw(window);
+    GameManager::draw(window);
     window.display();
 }

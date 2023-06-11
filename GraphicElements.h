@@ -11,13 +11,14 @@
 class GraphicElements {
 public:
     GraphicElements() = delete;
-    explicit GraphicElements(std::string_view texture_location);
+    GraphicElements(std::string_view texture_location, sf::Vector2f position);
     virtual ~GraphicElements() = default;
     void draw(sf::RenderWindow& window);
     virtual void update() = 0;
 
     enum class TYPE {
         Player,
+        Missile,
         Other
     };
 

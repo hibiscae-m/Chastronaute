@@ -6,7 +6,6 @@
 #define CHASTRONAUTE_GAME_H
 
 #include <SFML/Graphics.hpp>
-#include "GameManager.h"
 
 class Game {
 public:
@@ -16,7 +15,6 @@ private:
     void processEvents();
     void display();
     sf::RenderWindow window;
-    GameManager game_manager;
 };
 
 

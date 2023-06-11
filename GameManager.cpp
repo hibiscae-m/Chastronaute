@@ -4,6 +4,7 @@
 
 #include "GameManager.h"
 #include "Player.h"
+#include "Missile.h"
 
 void GameManager::update() {
     for (auto& buffered_element : buffer)
@@ -21,8 +22,11 @@ void GameManager::draw(sf::RenderWindow &window) {
         element->draw(window);
 }
 
-void GameManager::add(GraphicElements::TYPE type) {
+void GameManager::add(GraphicElements::TYPE type, sf::Vector2f position) {
     if (type == GraphicElements::TYPE::Player) {
-        buffer.push_back(std::make_unique<Player>());
+        buffer.push_back(std::make_unique<Player>(position));
+    }
+    if (type == GraphicElements::TYPE::Missile) {
+        buffer.push_back(std::make_unique<Missile>(position));
     }
 }

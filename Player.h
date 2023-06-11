@@ -10,8 +10,14 @@
 
 class Player : public GraphicElements {
 public:
-    Player();
+    Player() = delete;
+    explicit Player(sf::Vector2f position);
     void update() override;
+private:
+    void handlePlayerInputs();
+    float speed = 70.f;
+    const float FRICTION = 5.F;
+    sf::Vector2f acceleration = {0.f, 0.f};
 };
 
 

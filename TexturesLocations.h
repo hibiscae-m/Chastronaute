@@ -9,7 +9,8 @@
 
 class TexturesLocations {
 public:
-    static constexpr std::string_view CHASTRONAUTE = "../resources/chastronaute.png";
+    static constexpr std::string_view CHASTRONAUTE = "../resources/chastronaute.png"; // Image by catalyststuff on Freepik
+    static constexpr std::string_view MISSILE = "../resources/missile.png";
 };
 
 
