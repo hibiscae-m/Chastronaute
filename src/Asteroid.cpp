@@ -14,23 +14,21 @@ Asteroid::Asteroid() : GraphicElements() {
     auto random_height_position = window_height_distribution(generator);
 
     auto texture_distribution = std::uniform_int_distribution(0, 1);
+    enum ASTEROID_TYPE { Asteroid, Wool };
     auto random_texture_distribution = texture_distribution(generator);
 
-    std::string_view texture;
     switch (random_texture_distribution) {
-        case 0:
-            texture = TexturesLocations::ASTEROID;
+        case ASTEROID_TYPE::Asteroid:
+            initializeSprite(TexturesLocations::ASTEROID);
             break;
-        case 1:
-            texture = TexturesLocations::WOOL;
+        case ASTEROID_TYPE::Wool:
+            initializeSprite(TexturesLocations::WOOL);
             break;
         default:
             break;
     }
-    initializeSprite(texture,
-                     {WindowSettings::WINDOW_WIDTH, random_height_position});
-    sprite.setPosition(sprite.getPosition().x + sprite.getGlobalBounds().width,
-                       sprite.getPosition().y);
+    sprite.setPosition(WindowSettings::WINDOW_WIDTH + sprite.getGlobalBounds().width,
+                       random_height_position);
 
     type = TYPE::Enemies;
     speed = -200.f;
