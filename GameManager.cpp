@@ -5,7 +5,7 @@
 #include "GameManager.h"
 #include "Player.h"
 #include "Missile.h"
-#include "Asteroid.h"
+#include "Wool.h"
 #include "Impact.h"
 #include "WindowSettings.h"
 #include <random>
@@ -36,7 +36,7 @@ void GameManager::add(GraphicElements::TYPE type, sf::Vector2f position) {
         buffer.push_back(std::make_unique<Missile>(position));
     }
     if (type == GraphicElements::TYPE::Asteroid) {
-        buffer.push_back(std::make_unique<Asteroid>(position));
+        buffer.push_back(std::make_unique<Wool>(position));
     }
     if (type == GraphicElements::TYPE::Impact) {
         buffer.push_back(std::make_unique<Impact>(position));

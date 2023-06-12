@@ -10,7 +10,10 @@
 Game::Game() :
         window(sf::VideoMode(WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT),
                WindowSettings::WINDOW_NAME.data())
-{}
+{
+    window.setVerticalSyncEnabled(true);
+    window.setFramerateLimit(60);
+}
 
 void Game::run() {
     GameManager::add(GraphicElements::TYPE::Player, {150, 100});
