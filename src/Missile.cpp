@@ -6,7 +6,8 @@
 #include "../include/TexturesLocations.h"
 #include "../include/GameManager.h"
 
-Missile::Missile(sf::Vector2f position) : GraphicElements(TexturesLocations::MISSILE, position) {
+Missile::Missile(sf::Vector2f position) : GraphicElements() {
+    initializeSprite(TexturesLocations::MISSILE, position);
     type = TYPE::Missile;
     speed = 900.f;
     lifetime = sf::seconds(3);
@@ -14,7 +15,7 @@ Missile::Missile(sf::Vector2f position) : GraphicElements(TexturesLocations::MIS
 }
 
 void Missile::reactCollision(GraphicElements::TYPE type) {
-    if (type == TYPE::Asteroid) {
+    if (type == TYPE::Enemies) {
         GameManager::add(TYPE::Impact, sprite.getPosition());
         alive = false;
     }

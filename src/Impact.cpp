@@ -6,7 +6,8 @@
 #include "../include/TexturesLocations.h"
 
 
-Impact::Impact(sf::Vector2f position) : GraphicElements(TexturesLocations::IMPACT, position){
+Impact::Impact(sf::Vector2f position) : GraphicElements(){
+    initializeSprite(TexturesLocations::IMPACT, position);
     sprite.setScale(0.1, 0.1);
     lifetime = sf::seconds(2);
 }

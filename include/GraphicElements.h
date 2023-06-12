@@ -10,14 +10,15 @@
 
 class GraphicElements {
 public:
-    GraphicElements() = delete;
-    GraphicElements(std::string_view texture_location, sf::Vector2f position);
+    GraphicElements() = default;
+    //explicit GraphicElements(std::string_view texture_location);
+    //GraphicElements(std::string_view texture_location, sf::Vector2f position);
     virtual ~GraphicElements() = default;
 
     enum class TYPE {
         Player,
         Missile,
-        Asteroid,
+        Enemies,
         Impact,
         Other
     };
@@ -33,6 +34,7 @@ public:
     sf::Vector2f getPosition() const { return sprite.getPosition(); };
     float getHitboxRadius() const { return hitbox.getRadius(); };
 protected:
+    void initializeSprite(std::string_view texture_location, sf::Vector2f position = {100.f, 100.f});
     float speed{};
     const float FRICTION = 5.F;
     sf::Vector2f acceleration = {0.f, 0.f};

@@ -8,8 +8,9 @@
 #include "../include/GameManager.h"
 
 Player::Player(sf::Vector2f position) :
-    GraphicElements(TexturesLocations::CHASTRONAUTE, position)
+    GraphicElements()
 {
+    initializeSprite(TexturesLocations::CHASTRONAUTE, position);
     type = TYPE::Player;
     speed = 70.f;
 }
@@ -51,7 +52,7 @@ void Player::shoot() {
 }
 
 void Player::reactCollision(GraphicElements::TYPE type) {
-    if (type == TYPE::Asteroid) {
+    if (type == TYPE::Enemies) {
         alive = false;
     }
 }

@@ -9,8 +9,7 @@
 
 class Wool : public GraphicElements {
 public:
-    Wool() = delete;
-    explicit Wool(sf::Vector2f position);
+    Wool();
     void update() override;
 
     void reactCollision(TYPE type) override;
