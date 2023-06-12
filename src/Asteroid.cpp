@@ -27,7 +27,10 @@ Asteroid::Asteroid() : GraphicElements() {
         default:
             break;
     }
-    initializeSprite(texture, {WindowSettings::WINDOW_WIDTH, random_height_position});
+    initializeSprite(texture,
+                     {WindowSettings::WINDOW_WIDTH, random_height_position});
+    sprite.setPosition(sprite.getPosition().x + sprite.getGlobalBounds().width,
+                       sprite.getPosition().y);
 
     type = TYPE::Enemies;
     speed = -200.f;
