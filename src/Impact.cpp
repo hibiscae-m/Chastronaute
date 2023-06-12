@@ -2,8 +2,8 @@
 // Created by Marius on 11/06/2023.
 //
 
-#include "Impact.h"
-#include "TexturesLocations.h"
+#include "../include/Impact.h"
+#include "../include/TexturesLocations.h"
 
 
 Impact::Impact(sf::Vector2f position) : GraphicElements(TexturesLocations::IMPACT, position){

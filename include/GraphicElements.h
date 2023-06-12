@@ -6,7 +6,7 @@
 #define CHASTRONAUTE_GRAPHICELEMENTS_H
 
 #include <string_view>
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 
 class GraphicElements {
 public:

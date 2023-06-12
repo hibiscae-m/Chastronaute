@@ -2,10 +2,10 @@
 // Created by Marius on 11/06/2023.
 //
 
-#include "Player.h"
-#include "TexturesLocations.h"
-#include "WindowSettings.h"
-#include "GameManager.h"
+#include "../include/Player.h"
+#include "../include/TexturesLocations.h"
+#include "../include/WindowSettings.h"
+#include "../include/GameManager.h"
 
 Player::Player(sf::Vector2f position) :
     GraphicElements(TexturesLocations::CHASTRONAUTE, position)
@@ -30,20 +30,16 @@ void Player::update() {
 
 void Player::handlePlayerInputs() {
     { // Movement
-        sf::Vector2f movement = {0.f, 0.f};
+        float movement = 0.f;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            movement += {0.f, -speed };
+            movement += -speed;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            movement += {0.f, speed };
-        acceleration += movement;
+            movement += speed;
+        acceleration += {0.f, movement};
     }
     { // Shooting
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             shoot();
-    }
-    { // Spawn asteroids
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        }
     }
 }
 

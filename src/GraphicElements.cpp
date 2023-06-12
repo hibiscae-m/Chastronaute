@@ -2,9 +2,9 @@
 // Created by Marius on 11/06/2023.
 //
 
-#include "GraphicElements.h"
-#include "ResourcesManager.h"
-#include "WindowSettings.h"
+#include "../include/GraphicElements.h"
+#include "../include/ResourcesManager.h"
+#include "../include/WindowSettings.h"
 #include <cmath>
 
 GraphicElements::GraphicElements(const std::string_view texture_location, sf::Vector2f position) {

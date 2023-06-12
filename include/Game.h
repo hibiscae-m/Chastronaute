@@ -5,7 +5,7 @@
 #ifndef CHASTRONAUTE_GAME_H
 #define CHASTRONAUTE_GAME_H
 
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 
 class Game {
 public:

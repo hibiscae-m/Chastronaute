@@ -5,7 +5,7 @@
 #ifndef CHASTRONAUTE_GAMEMANAGER_H
 #define CHASTRONAUTE_GAMEMANAGER_H
 
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp"
 #include "GraphicElements.h"
 
 static std::vector<std::unique_ptr<GraphicElements>> elements{};

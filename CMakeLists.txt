@@ -3,7 +3,7 @@ project(Chastronaute)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Chastronaute main.cpp Game.cpp Game.h WindowSettings.h ResourcesManager.cpp ResourcesManager.h GraphicElements.cpp GraphicElements.h Player.cpp Player.h GameManager.cpp GameManager.h TexturesLocations.h Missile.cpp Missile.h Wool.cpp Wool.h Impact.cpp Impact.h)
+add_executable(Chastronaute main.cpp src/Game.cpp include/Game.h include/WindowSettings.h src/ResourcesManager.cpp include/ResourcesManager.h src/GraphicElements.cpp include/GraphicElements.h src/Player.cpp include/Player.h src/GameManager.cpp include/GameManager.h include/TexturesLocations.h src/Missile.cpp include/Missile.h src/Wool.cpp include/Wool.h src/Impact.cpp include/Impact.h)
 
 find_package(SFML COMPONENTS system window graphics audio CONFIG REQUIRED)
 target_link_libraries(Chastronaute PRIVATE sfml-system sfml-network sfml-graphics sfml-window sfml-audio)

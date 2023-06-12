@@ -2,10 +2,10 @@
 // Created by Marius on 11/06/2023.
 //
 
-#include "Game.h"
-#include "WindowSettings.h"
-#include "Player.h"
-#include "GameManager.h"
+#include "../include/Game.h"
+#include "../include/WindowSettings.h"
+#include "../include/Player.h"
+#include "../include/GameManager.h"
 
 Game::Game() :
         window(sf::VideoMode(WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT),

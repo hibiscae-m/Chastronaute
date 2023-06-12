@@ -2,9 +2,9 @@
 // Created by Marius on 11/06/2023.
 //
 
-#include "Missile.h"
-#include "TexturesLocations.h"
-#include "GameManager.h"
+#include "../include/Missile.h"
+#include "../include/TexturesLocations.h"
+#include "../include/GameManager.h"
 
 Missile::Missile(sf::Vector2f position) : GraphicElements(TexturesLocations::MISSILE, position) {
     type = TYPE::Missile;

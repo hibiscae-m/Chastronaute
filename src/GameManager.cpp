@@ -2,12 +2,12 @@
 // Created by Marius on 11/06/2023.
 //
 
-#include "GameManager.h"
-#include "Player.h"
-#include "Missile.h"
-#include "Wool.h"
-#include "Impact.h"
-#include "WindowSettings.h"
+#include "../include/GameManager.h"
+#include "../include/Player.h"
+#include "../include/Missile.h"
+#include "../include/Wool.h"
+#include "../include/Impact.h"
+#include "../include/WindowSettings.h"
 #include <random>
 
 void GameManager::update() {
