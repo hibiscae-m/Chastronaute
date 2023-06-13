@@ -13,13 +13,18 @@ Asteroid::Asteroid() : Enemies() {
     auto window_height_distribution = std::uniform_real_distribution<float>(0, WindowSettings::WINDOW_HEIGHT);
     auto random_height_position = window_height_distribution(generator);
 
-    auto texture_distribution = std::uniform_int_distribution(0, 1);
-    enum ASTEROID_TYPE { Asteroid, Wool };
+    auto texture_distribution = std::uniform_int_distribution(0, 2);
+    enum ASTEROID_TYPE { Asteroid, SuperAsteroid, Wool };
     auto random_texture_distribution = texture_distribution(generator);
 
     switch (random_texture_distribution) {
         case ASTEROID_TYPE::Asteroid:
             initializeSprite(TexturesLocations::ASTEROID);
+            break;
+        case ASTEROID_TYPE::SuperAsteroid:
+            initializeSprite(TexturesLocations::ASTEROID);
+            sprite.setColor(sf::Color(100, 100, 100));
+            resistant = true;
             break;
         case ASTEROID_TYPE::Wool:
             initializeSprite(TexturesLocations::WOOL);

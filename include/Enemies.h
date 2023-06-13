@@ -12,9 +12,8 @@ public:
     Enemies();
 protected:
     int lives = 1;
-private:
     bool resistant = false;
-    bool destructible = true;
+private:
     void reactCollision(TYPE type) override;
     void checkHealth();
 };
