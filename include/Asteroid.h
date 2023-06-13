@@ -5,14 +5,12 @@
 #ifndef CHASTRONAUTE_ASTEROID_H
 #define CHASTRONAUTE_ASTEROID_H
 
-#include "GraphicElements.h"
+#include "Enemies.h"
 
-class Asteroid : public GraphicElements {
+class Asteroid : public Enemies {
 public:
     Asteroid();
     void update() override;
-
-    void reactCollision(TYPE type) override;
 };
 
 

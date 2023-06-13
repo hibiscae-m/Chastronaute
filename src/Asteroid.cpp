@@ -7,7 +7,7 @@
 #include "../include/WindowSettings.h"
 #include <random>
 
-Asteroid::Asteroid() : GraphicElements() {
+Asteroid::Asteroid() : Enemies() {
     auto generator = std::random_device();
 
     auto window_height_distribution = std::uniform_real_distribution<float>(0, WindowSettings::WINDOW_HEIGHT);
@@ -30,7 +30,7 @@ Asteroid::Asteroid() : GraphicElements() {
     sprite.setPosition(WindowSettings::WINDOW_WIDTH + sprite.getGlobalBounds().width,
                        random_height_position);
 
-    type = TYPE::Enemies;
+    lives = 2;
     speed = -200.f;
     lifetime = sf::seconds(10);
     acceleration = {speed, 0.f};
@@ -38,11 +38,5 @@ Asteroid::Asteroid() : GraphicElements() {
 
 void Asteroid::update() {
     sprite.rotate(-1.f);
-    GraphicElements::update();
-}
-
-void Asteroid::reactCollision(GraphicElements::TYPE type) {
-    if (type == TYPE::Missile) {
-        alive = false;
-    }
+    Enemies::update();
 }

@@ -11,8 +11,6 @@
 class GraphicElements {
 public:
     GraphicElements() = default;
-    //explicit GraphicElements(std::string_view texture_location);
-    //GraphicElements(std::string_view texture_location, sf::Vector2f position);
     virtual ~GraphicElements() = default;
 
     enum class TYPE {
@@ -38,6 +36,8 @@ protected:
     float speed{};
     const float FRICTION = 5.F;
     sf::Vector2f acceleration = {0.f, 0.f};
+    sf::Clock damaged_clock;
+    bool damaged = false;
     bool alive = true;
     TYPE type = TYPE::Other;
     sf::Sprite sprite;
@@ -45,6 +45,7 @@ protected:
     sf::Time lifetime;
     sf::CircleShape hitbox;
 private:
+    sf::Time damaged_animation_lifetime = sf::milliseconds(200);
 };
 
 

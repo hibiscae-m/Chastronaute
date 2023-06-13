@@ -18,6 +18,15 @@ void GraphicElements::update() {
     if (time_since_spawned.getElapsedTime() > lifetime) {
         alive = false;
     }
+    if (damaged) {
+        if (damaged_clock.getElapsedTime() < damaged_animation_lifetime) {
+            int color_value = damaged_clock.getElapsedTime().asMilliseconds() * 255 / damaged_animation_lifetime.asMilliseconds();
+            sprite.setColor(sf::Color(255, color_value, color_value));
+        }
+        else {
+            damaged = false;
+        }
+    }
 }
 
 void GraphicElements::checkCollisions(const GraphicElements &other) {
@@ -32,7 +41,7 @@ void GraphicElements::initializeSprite(const std::string_view texture_location,
                                        const sf::Vector2f position) {
     sprite.setTexture(ResourcesManager<sf::Texture>::getResource(texture_location));
     sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
-    hitbox.setRadius(sprite.getGlobalBounds().height / 1.8f);
+    hitbox.setRadius(sprite.getGlobalBounds().height / 2.f);
     hitbox.setOrigin(hitbox.getGlobalBounds().width / 2, hitbox.getGlobalBounds().height / 2);
     hitbox.setFillColor(sf::Color(255, 0, 0, 125));
     sprite.setPosition(position);
