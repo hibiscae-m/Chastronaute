@@ -9,16 +9,16 @@
 
 void GraphicElements::draw(sf::RenderWindow &window) {
     window.draw(sprite);
-    //window.draw(hitbox);
+     //window.draw(hitbox);
 }
 
 void GraphicElements::update() {
-    sprite.move(acceleration * WindowSettings::TIME_PER_FRAME);
-    hitbox.setPosition(sprite.getPosition());
-    hitbox.setRotation(sprite.getRotation());
     if (time_since_spawned.getElapsedTime() > lifetime) {
         alive = false;
     }
+    sprite.move(acceleration * WindowSettings::TIME_PER_FRAME);
+    hitbox.setPosition(sprite.getPosition());
+    hitbox.setRotation(sprite.getRotation());
     if (damaged) {
         if (damaged_clock.getElapsedTime() < damaged_animation_lifetime) {
             int color_value = damaged_clock.getElapsedTime().asMilliseconds() * 255 / damaged_animation_lifetime.asMilliseconds();
@@ -34,7 +34,9 @@ void GraphicElements::checkCollisions(const GraphicElements &other) {
     double distance = sqrt(std::pow(sprite.getPosition().x - other.getPosition().x, 2) +
                            std::pow(sprite.getPosition().y - other.getPosition().y, 2));
     if (distance < (hitbox.getRadius() + other.getHitboxRadius())) {
-        reactCollision(other.getType());
+        if (hitbox_active && other.isHitboxActive()) {
+            reactCollision(other.getType());
+        }
     }
 }
 
