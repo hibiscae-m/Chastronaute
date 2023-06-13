@@ -23,7 +23,6 @@ Asteroid::Asteroid() : Enemies() {
             break;
         case ASTEROID_TYPE::SuperAsteroid:
             initializeSprite(TexturesLocations::OVNI);
-            hitbox.setScale(1, 0.5);
             resistant = true;
             break;
         case ASTEROID_TYPE::Wool:

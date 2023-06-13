@@ -12,7 +12,6 @@ public:
     Missile() = delete;
     explicit Missile(sf::Vector2f position);
     void reactCollision(TYPE type) override;
-    void update() override;
 private:
     sf::Clock destruction_delay_clock;
     sf::Time destruction_delay_timer = sf::milliseconds(20);

@@ -16,17 +16,7 @@ Missile::Missile(sf::Vector2f position) : GraphicElements() {
 
 void Missile::reactCollision(GraphicElements::TYPE type) {
     if (type == TYPE::Enemies) {
-        hitbox_active = false;
-        destruction_delay_clock.restart();
+        GameManager::add(TYPE::Impact, sprite.getPosition());
+        alive = false;
     }
-}
-
-void Missile::update() {
-    if (!hitbox_active) {
-        if (destruction_delay_clock.getElapsedTime() > destruction_delay_timer) {
-            GameManager::add(TYPE::Impact, sprite.getPosition());
-            alive = false;
-        }
-    }
-    GraphicElements::update();
 }

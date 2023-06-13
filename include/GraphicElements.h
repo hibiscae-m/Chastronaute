@@ -28,10 +28,8 @@ public:
 
     // Getters
     bool isAlive() const { return alive; };
-    bool isHitboxActive() const { return hitbox_active; };
     TYPE getType() const { return type; };
     sf::Vector2f getPosition() const { return sprite.getPosition(); };
-    float getHitboxRadius() const { return hitbox.getRadius(); };
 protected:
     void initializeSprite(std::string_view texture_location, sf::Vector2f position = {100.f, 100.f});
     float speed{};
@@ -44,8 +42,6 @@ protected:
     sf::Sprite sprite;
     sf::Clock time_since_spawned;
     sf::Time lifetime;
-    sf::CircleShape hitbox;
-    bool hitbox_active = true;
 private:
     sf::Time damaged_animation_lifetime = sf::milliseconds(200);
 };
