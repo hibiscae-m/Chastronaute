@@ -26,6 +26,9 @@ public:
     void checkCollisions(const GraphicElements& other);
     virtual void reactCollision(TYPE type) = 0;
 
+    //Setters
+    void setAlive(const bool condition) { alive = condition; };
+
     // Getters
     bool isAlive() const { return alive; };
     TYPE getType() const { return type; };

@@ -53,5 +53,6 @@ void Player::shoot() {
 void Player::reactCollision(GraphicElements::TYPE type) {
     if (type == TYPE::Enemies) {
         alive = false;
+        GameManager::gameOver();
     }
 }

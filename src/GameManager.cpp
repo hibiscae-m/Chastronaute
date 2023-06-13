@@ -11,13 +11,21 @@
 #include <random>
 
 void GameManager::update() {
-    spawn();
-    checkCollision();
+    if (!game_over) {
+        spawn();
+        checkCollision();
+    }
+    for (auto& element: elements) {
+        element->update();
+    }
+    clean();
+}
+
+void GameManager::clean() {
     for (auto& buffered_element : buffer)
         elements.push_back(std::move(buffered_element));
     buffer.clear();
     for (auto i = 0u; i < elements.size(); i++) {
-        elements[i]->update();
         if (!(elements[i]->isAlive()))
             elements.erase(elements.begin() + i);
     }
@@ -58,4 +66,16 @@ void GameManager::spawn() {
         time_since_last_asteroid.restart();
         GameManager::add(GraphicElements::TYPE::Enemies);
     }
+}
+
+void GameManager::start() {
+    game_over = false;
+    GameManager::add(GraphicElements::TYPE::Player, {150, 100});
+}
+
+void GameManager::gameOver() {
+    for (auto& element: elements) {
+        element->setAlive(false);
+    }
+    game_over = true;
 }
