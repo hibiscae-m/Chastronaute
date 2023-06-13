@@ -15,6 +15,7 @@ void GraphicElements::draw(sf::RenderWindow &window) {
 void GraphicElements::update() {
     sprite.move(acceleration * WindowSettings::TIME_PER_FRAME);
     hitbox.setPosition(sprite.getPosition());
+    hitbox.setRotation(sprite.getRotation());
     if (time_since_spawned.getElapsedTime() > lifetime) {
         alive = false;
     }
@@ -41,7 +42,7 @@ void GraphicElements::initializeSprite(const std::string_view texture_location,
                                        const sf::Vector2f position) {
     sprite.setTexture(ResourcesManager<sf::Texture>::getResource(texture_location));
     sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
-    hitbox.setRadius(sprite.getGlobalBounds().height / 2.f);
+    hitbox.setRadius(sprite.getGlobalBounds().width / 2.f);
     hitbox.setOrigin(hitbox.getGlobalBounds().width / 2, hitbox.getGlobalBounds().height / 2);
     hitbox.setFillColor(sf::Color(255, 0, 0, 125));
     sprite.setPosition(position);
