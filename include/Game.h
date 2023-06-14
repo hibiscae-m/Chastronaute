@@ -6,6 +6,7 @@
 #define CHASTRONAUTE_GAME_H
 
 #include "SFML/Graphics.hpp"
+#include "HomeScreen.h"
 
 class Game {
 public:
@@ -15,6 +16,7 @@ private:
     void processEvents();
     void display();
     sf::RenderWindow window;
+    HomeScreen home_screen;
 };
 
 

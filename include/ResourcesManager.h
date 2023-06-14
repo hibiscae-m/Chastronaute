@@ -14,13 +14,13 @@ class ResourcesManager
 {
 public:
     ResourcesManager() = delete;
-    static T const& getResource(std::string_view const& texture_location) {
-        auto result = resources.find(texture_location);
+    static T const& getResource(std::string_view const& resource_location) {
+        auto result = resources.find(resource_location);
         if (result == std::end(resources)) {
-            if (!resources[texture_location].loadFromFile(texture_location.data())) {
-                std::cout << "Impossible de charger l'image" << std::endl;
+            if (!resources[resource_location].loadFromFile(resource_location.data())) {
+                std::cout << "Impossible de charger la ressource : " << resource_location.data() << std::endl;
             }
-            return resources[texture_location];
+            return resources[resource_location];
         }
         return result->second;
     }

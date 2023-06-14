@@ -14,10 +14,11 @@ namespace ResourcesLocations::Textures {
     static constexpr std::string_view OVNI = "../resources/textures/ovni.png";
     static constexpr std::string_view WOOL = "../resources/textures/wool.png";
     static constexpr std::string_view IMPACT = "../resources/textures/impact.png";
+    static constexpr std::string_view CURSOR = "../resources/textures/cursor.png";
 }
 
 namespace ResourcesLocations::Fonts {
-
+    static constexpr std::string_view GIDDYUPSTD = "../resources/fonts/GiddyupStd.otf";
 }
 
 

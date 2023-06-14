@@ -6,7 +6,6 @@
 #include "../include/WindowSettings.h"
 #include "../include/Player.h"
 #include "../include/GameManager.h"
-#include <iostream>
 
 Game::Game() :
         window(sf::VideoMode(WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT),
@@ -38,10 +37,21 @@ void Game::processEvents() {
             window.close();
         }
         if (event.type == sf::Event::KeyPressed) {
-            if (event.key.code == sf::Keyboard::A) {
-                std::cout << GameManager::isGameStarted() << std::endl;
-                if (!GameManager::isGameStarted()) {
-                    GameManager::startGame();
+            if (!GameManager::isGameStarted()) {
+                if (event.key.code == sf::Keyboard::Enter) {
+                    auto choice = home_screen.getCursorPosition();
+                    if (choice == HomeScreen::CHOICES::Play) {
+                        GameManager::startGame();
+                    }
+                    if (choice == HomeScreen::CHOICES::Quit) {
+                        window.close();
+                    }
+                }
+                if (event.key.code == sf::Keyboard::Up) {
+                    home_screen.moveCursor(HomeScreen::DIRECTION::Up);
+                }
+                if (event.key.code == sf::Keyboard::Down) {
+                    home_screen.moveCursor(HomeScreen::DIRECTION::Down);
                 }
             }
         }
@@ -52,6 +62,9 @@ void Game::display() {
     window.clear();
     if (GameManager::isGameStarted()) {
         GameManager::draw(window);
+    }
+    else {
+        home_screen.draw(window);
     }
     window.display();
 }
