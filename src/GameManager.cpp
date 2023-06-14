@@ -11,7 +11,7 @@
 #include <random>
 
 void GameManager::update() {
-    if (!game_over) {
+    if (game_started) {
         spawn();
         checkCollision();
     }
@@ -68,18 +68,18 @@ void GameManager::spawn() {
     }
 }
 
-void GameManager::start() {
-    game_over = false;
+void GameManager::startGame() {
+    game_started = true;
     GameManager::add(GraphicElements::TYPE::Player, {150, 100});
 }
 
-void GameManager::gameOver() {
+void GameManager::endGame() {
     for (auto& element: elements) {
         element->setAlive(false);
     }
-    game_over = true;
+    game_started = false;
 }
 
-bool GameManager::isGameOver() {
-    return game_over;
+bool GameManager::isGameStarted() {
+    return game_started;
 }

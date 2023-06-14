@@ -14,7 +14,7 @@ static std::vector<std::unique_ptr<GraphicElements>> buffer{};
 static sf::Clock time_since_last_asteroid;
 static sf::Time asteroid_cooldown = sf::milliseconds(750);
 
-static bool game_over = true;
+static bool game_started = false;
 
 class GameManager {
 public:
@@ -22,9 +22,9 @@ public:
     static void update();
     static void draw(sf::RenderWindow& window);
     static void add(GraphicElements::TYPE type, sf::Vector2f position);
-    static void start();
-    static void gameOver();
-    static bool isGameOver();
+    static void startGame();
+    static void endGame();
+    static bool isGameStarted();
 private:
     static void checkCollision();
     static void spawn();
