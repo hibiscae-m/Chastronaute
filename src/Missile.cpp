@@ -3,11 +3,11 @@
 //
 
 #include "../include/Missile.h"
-#include "../include/TexturesLocations.h"
+#include "../include/ResourcesLocations.h"
 #include "../include/GameManager.h"
 
 Missile::Missile(sf::Vector2f position) : GraphicElements() {
-    initializeSprite(TexturesLocations::MISSILE, position);
+    initializeSprite(ResourcesLocations::Textures::MISSILE, position);
     type = TYPE::Missile;
     speed = 900.f;
     lifetime = sf::seconds(3);

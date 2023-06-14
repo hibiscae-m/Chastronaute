@@ -3,14 +3,14 @@
 //
 
 #include "../include/Player.h"
-#include "../include/TexturesLocations.h"
+#include "../include/ResourcesLocations.h"
 #include "../include/WindowSettings.h"
 #include "../include/GameManager.h"
 
 Player::Player(sf::Vector2f position) :
     GraphicElements()
 {
-    initializeSprite(TexturesLocations::CHASTRONAUTE, position);
+    initializeSprite(ResourcesLocations::Textures::CHASTRONAUTE, position);
     type = TYPE::Player;
     speed = 70.f;
 }

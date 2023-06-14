@@ -3,11 +3,11 @@
 //
 
 #include "../include/Impact.h"
-#include "../include/TexturesLocations.h"
+#include "../include/ResourcesLocations.h"
 
 
 Impact::Impact(sf::Vector2f position) : GraphicElements(){
-    initializeSprite(TexturesLocations::IMPACT, position);
+    initializeSprite(ResourcesLocations::Textures::IMPACT, position);
     sprite.setScale(0.1, 0.1);
     lifetime = sf::seconds(2);
 }

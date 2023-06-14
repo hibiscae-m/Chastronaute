@@ -3,7 +3,7 @@
 //
 
 #include "../include/Asteroid.h"
-#include "../include/TexturesLocations.h"
+#include "../include/ResourcesLocations.h"
 #include "../include/WindowSettings.h"
 #include <random>
 
@@ -19,14 +19,14 @@ Asteroid::Asteroid() : Enemies() {
 
     switch (random_texture_distribution) {
         case ASTEROID_TYPE::Asteroid:
-            initializeSprite(TexturesLocations::ASTEROID);
+            initializeSprite(ResourcesLocations::Textures::ASTEROID);
             break;
         case ASTEROID_TYPE::SuperAsteroid:
-            initializeSprite(TexturesLocations::OVNI);
+            initializeSprite(ResourcesLocations::Textures::OVNI);
             resistant = true;
             break;
         case ASTEROID_TYPE::Wool:
-            initializeSprite(TexturesLocations::WOOL);
+            initializeSprite(ResourcesLocations::Textures::WOOL);
             break;
         default:
             break;
