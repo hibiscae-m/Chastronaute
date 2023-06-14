@@ -24,7 +24,7 @@ public:
     static void add(GraphicElements::TYPE type, sf::Vector2f position);
     static void start();
     static void gameOver();
-    static bool isGameOver() { return game_over; };
+    static bool isGameOver();
 private:
     static void checkCollision();
     static void spawn();

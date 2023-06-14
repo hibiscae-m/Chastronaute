@@ -39,6 +39,7 @@ void Game::processEvents() {
         }
         if (event.type == sf::Event::KeyPressed) {
             if (event.key.code == sf::Keyboard::A) {
+                std::cout << GameManager::isGameOver() << std::endl;
                 if (GameManager::isGameOver()) {
                     GameManager::start();
                 }
@@ -49,7 +50,7 @@ void Game::processEvents() {
 
 void Game::display() {
     window.clear();
-    if (GameManager::isGameOver()) {
+    if (!GameManager::isGameOver()) {
         GameManager::draw(window);
     }
     window.display();

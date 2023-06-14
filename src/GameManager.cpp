@@ -79,3 +79,7 @@ void GameManager::gameOver() {
     }
     game_over = true;
 }
+
+bool GameManager::isGameOver() {
+    return game_over;
+}
