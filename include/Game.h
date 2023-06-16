@@ -17,6 +17,8 @@ private:
     void display();
     sf::RenderWindow window;
     HomeScreen home_screen;
+    sf::Sprite background;
+    std::string_view background_texture = ResourcesLocations::Textures::BACKGROUND;
 };
 
 

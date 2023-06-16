@@ -6,6 +6,7 @@
 #include "../include/WindowSettings.h"
 #include "../include/Player.h"
 #include "../include/GameManager.h"
+#include "../include/ResourcesManager.h"
 
 Game::Game() :
         window(sf::VideoMode(WindowSettings::WINDOW_WIDTH, WindowSettings::WINDOW_HEIGHT),
@@ -13,6 +14,11 @@ Game::Game() :
 {
     window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(60);
+    background.setTexture(ResourcesManager<sf::Texture>::getResource(background_texture));
+    background.setOrigin(background.getGlobalBounds().width / 2, background.getGlobalBounds().height / 2);
+    background.setPosition(WindowSettings::WINDOW_WIDTH / 2.f, WindowSettings::WINDOW_HEIGHT / 2.f);
+    background.setScale(WindowSettings::WINDOW_WIDTH / background.getGlobalBounds().width,
+                        WindowSettings::WINDOW_HEIGHT / background.getGlobalBounds().height);
 }
 
 void Game::run() {
@@ -63,6 +69,7 @@ void Game::processEvents() {
 
 void Game::display() {
     window.clear();
+    window.draw(background);
     if (GameManager::isGameStarted()) {
         GameManager::draw(window);
     }

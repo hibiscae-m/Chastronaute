@@ -44,8 +44,7 @@ private:
     std::string_view title_texture = ResourcesLocations::Textures::TITLE;
     sf::Sprite chastronaute;
     std::string_view chastronaute_texture = ResourcesLocations::Textures::CHASTRONAUTE;
-    sf::Sprite background;
-    std::string_view background_texture = ResourcesLocations::Textures::BACKGROUND;
+    sf::Vector2f chastronaute_initial_position;
     sf::Clock clock;
 };
 
