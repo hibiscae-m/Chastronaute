@@ -15,6 +15,7 @@ class HomeScreen {
 public:
     HomeScreen();
     void draw(sf::RenderWindow& window);
+    void update();
 
     enum DIRECTION { Up, Down };
     void moveCursor(DIRECTION direction);
@@ -39,6 +40,13 @@ private:
     unsigned int cursor_maximum_position;
     sf::Sprite cursor;
     std::string_view cursor_texture = ResourcesLocations::Textures::CURSOR;
+    sf::Sprite title;
+    std::string_view title_texture = ResourcesLocations::Textures::TITLE;
+    sf::Sprite chastronaute;
+    std::string_view chastronaute_texture = ResourcesLocations::Textures::CHASTRONAUTE;
+    sf::Sprite background;
+    std::string_view background_texture = ResourcesLocations::Textures::BACKGROUND;
+    sf::Clock clock;
 };
 
 

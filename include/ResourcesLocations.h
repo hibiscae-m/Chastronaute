@@ -15,6 +15,8 @@ namespace ResourcesLocations::Textures {
     static constexpr std::string_view WOOL = "../resources/textures/wool.png";
     static constexpr std::string_view IMPACT = "../resources/textures/impact.png";
     static constexpr std::string_view CURSOR = "../resources/textures/cursor.png";
+    static constexpr std::string_view TITLE = "../resources/textures/title.png";
+    static constexpr std::string_view BACKGROUND = "../resources/textures/background.jpg";
 }
 
 namespace ResourcesLocations::Fonts {

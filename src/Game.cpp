@@ -24,6 +24,9 @@ void Game::run() {
         if (time_since_last_update > time_per_frame) {
             time_since_last_update -= time_per_frame;
             processEvents();
+            if (!GameManager::isGameStarted()) {
+                home_screen.update();
+            }
             GameManager::update();
             display();
         }

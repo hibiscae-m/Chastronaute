@@ -5,8 +5,27 @@
 #include "../include/HomeScreen.h"
 #include "../include/ResourcesManager.h"
 #include "../include/WindowSettings.h"
+#include <cmath>
 
 HomeScreen::HomeScreen() {
+    // Title
+    background.setTexture(ResourcesManager<sf::Texture>::getResource(background_texture));
+    background.setOrigin(background.getGlobalBounds().width / 2, background.getGlobalBounds().height / 2);
+    background.setPosition(WindowSettings::WINDOW_WIDTH / 2.f, WindowSettings::WINDOW_HEIGHT / 2.f);
+    background.setScale(WindowSettings::WINDOW_WIDTH / background.getGlobalBounds().width,
+                        WindowSettings::WINDOW_HEIGHT / background.getGlobalBounds().height);
+    title.setTexture(ResourcesManager<sf::Texture>::getResource(title_texture));
+    title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
+    title.setPosition(WindowSettings::WINDOW_WIDTH / 2.f, WindowSettings::WINDOW_HEIGHT / 4.f);
+    chastronaute.setTexture(ResourcesManager<sf::Texture>::getResource(chastronaute_texture));
+    chastronaute.setScale(0.8, 0.8);
+    chastronaute.setRotation(-25);
+    chastronaute.setOrigin(chastronaute.getGlobalBounds().width / 2, chastronaute.getGlobalBounds().height / 2);
+    chastronaute.setPosition(title.getPosition().x - title.getGlobalBounds().width / 2,
+                             static_cast<float>(title.getPosition().y -
+                                                   title.getGlobalBounds().height / 2 -
+                                                   chastronaute.getLocalBounds().height / 2.5));
+    // Place menu lines and initializes cursor
     for (auto i = 0u; i < menu_sentences.size(); i++) {
         menu.push_back(std::make_unique<sf::Text>());
     }
@@ -27,10 +46,13 @@ HomeScreen::HomeScreen() {
 }
 
 void HomeScreen::draw(sf::RenderWindow &window) {
+    window.draw(background);
     for (auto& line: menu) {
         window.draw(*line);
-        window.draw(cursor);
     }
+    window.draw(cursor);
+    window.draw(chastronaute);
+    window.draw(title);
 }
 
 void HomeScreen::moveCursor(HomeScreen::DIRECTION direction) {
@@ -51,5 +73,10 @@ void HomeScreen::moveCursor(HomeScreen::DIRECTION direction) {
 
 long long HomeScreen::getCursorPosition() const {
     return cursor_current_position;
+}
+
+void HomeScreen::update() {
+    chastronaute.setPosition(chastronaute.getPosition().x,
+                             static_cast<float>(chastronaute.getPosition().y + (0.5 * sin(clock.getElapsedTime().asSeconds()))));
 }
 
