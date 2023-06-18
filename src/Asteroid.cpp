@@ -34,8 +34,13 @@ Asteroid::Asteroid() : Enemies() {
     sprite.setPosition(WindowSettings::WINDOW_WIDTH + sprite.getGlobalBounds().width,
                        random_height_position);
 
+    auto speed_distribution = std::uniform_real_distribution<float>(175, 225);
+    auto scale_distribution = std::uniform_real_distribution<float>(0.8, 1.2);
+    float random_scale = scale_distribution(generator);
+
     lives = 2;
-    speed = -200.f;
+    speed = -(speed_distribution(generator));
+    sprite.setScale(random_scale, random_scale);
     lifetime = sf::seconds(10);
     acceleration = {speed, 0.f};
 }
