@@ -35,7 +35,7 @@ Asteroid::Asteroid() : Enemies() {
                        random_height_position);
 
     auto speed_distribution = std::uniform_real_distribution<float>(175, 225);
-    auto scale_distribution = std::uniform_real_distribution<float>(0.8, 1.2);
+    auto scale_distribution = std::uniform_real_distribution<float>(sprite.getScale().x * 0.8f, sprite.getScale().x * 1.2f);
     float random_scale = scale_distribution(generator);
 
     lives = 2;
