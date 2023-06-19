@@ -17,9 +17,7 @@ HomeScreen::HomeScreen() {
     chastronaute.setRotation(-25);
     chastronaute.setOrigin(chastronaute.getGlobalBounds().width / 2, chastronaute.getGlobalBounds().height / 2);
     chastronaute_initial_position = { title.getPosition().x - title.getGlobalBounds().width / 2,
-                                      static_cast<float>(title.getPosition().y -
-                                                            title.getGlobalBounds().height / 2 -
-                                                            chastronaute.getLocalBounds().height / 2.5) };
+                                      title.getPosition().y - title.getGlobalBounds().height / 2.f - chastronaute.getLocalBounds().height / 2.5f };
     chastronaute.setPosition(chastronaute_initial_position);
     // Place menu lines and initializes cursor
     for (auto i = 0u; i < menu_sentences.size(); i++) {
